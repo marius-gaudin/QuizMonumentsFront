@@ -1,0 +1,22 @@
+<div class="monument" *ngIf="question?.monument?.photo">
+    <div class="top">
+        <h2>{{question?.monument?.name}}</h2>
+        <fa-icon class="maximize" (click)="maximize = !maximize" [icon]="maximize ? faChevronDown : faChevronUp"></fa-icon>
+    </div>
+    <div class="bottom" [class.min]="!maximize">
+        <div class="photo" >
+            <div class="background">
+                <img  [src]="question?.monument?.photo">
+            </div>
+            <img [src]="question?.monument?.photo">
+        </div>
+        <div *ngIf="question?.score !== null && question" class="result">
+            <p class="totalScore">{{question.totalScore}}</p>
+            <p><fa-icon [icon]="faPlus"></fa-icon> {{question.score}}</p>
+            <p><fa-icon [icon]="faDistance"></fa-icon> {{question.distance.value | floor}} {{question.distance.value < 1 ? 'm' : question.distance.unit}}</p>
+            <p><fa-icon [icon]="faClock"></fa-icon> {{question.time.minutes | twoDigit}}:{{question.time.seconds | twoDigit}}</p>
+        </div>
+        <button *ngIf="marker && question?.score === null" (click)="setAnswer()">VALIDER</button>
+        <button *ngIf="question?.score !== null" (click)="continue()">CONTINUER</button>
+    </div>
+</div>

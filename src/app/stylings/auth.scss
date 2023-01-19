@@ -1,0 +1,123 @@
+@import "theme";
+
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .globeIcon {
+        font-size: 5rem;
+        color: $primary;
+    }
+
+    h1 {
+        font-family: spaceGrotesk;
+        font-size: 2.5rem;
+        margin: 1rem;
+        color: $primary;
+    }
+
+    .errors {
+        height: 0;
+        color: $warn;
+    }
+
+    form {
+        width: 75%;
+        .input {
+            margin-top: 1.2rem;
+            height: 3.5rem;
+            border: solid 2px $primary;
+            border-radius: 4px;
+            padding-left: .5rem;
+            label {
+                display: block;
+                font-size: 0.9rem;
+                height: 0;
+                font-weight: bold;
+                color: $primary;
+            }
+            input {
+                width: 100%;
+                padding-top: 1.1rem;
+                background-color: transparent;
+                border: none;
+                font-family: nunito;
+                font-size: 1.5rem;
+                outline: none;
+                font-weight: bold;
+            }
+        }
+
+        .input:has(input:focus) {
+            border-color: $accent;
+            label {
+                color: $accent;
+            }
+        }
+
+        .submit, .link {
+            margin-top: 1.2rem;
+            width: 100%;
+            height: 3.5rem;
+            font-family: nunito;
+            font-size: 1.1rem;
+            border: solid 2px;
+            color: $light;
+            border-radius: 4px;
+            transition: all .2s;
+            &:disabled {
+                opacity: .5;
+                pointer-events: none;
+            }
+        }
+
+        .submit {
+            border-color: $accent;
+            background-color: $accent;
+            &:not(:disabled):hover {
+                background-color: transparent;
+                color: $accent;
+                font-weight: bold;
+            }
+        }
+        
+        .link {
+            border-color: $primary;
+            background-color: $primary;
+            &:not(:disabled):hover {
+                background-color: transparent;
+                color: $primary;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media (min-width: 400px) {
+    .content {
+        form {
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .content {
+        form {
+            width: 45%;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .content {
+        form {
+            width: 27%;
+        }
+    }
+}
+

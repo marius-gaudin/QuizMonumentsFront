@@ -1,0 +1,59 @@
+@import "theme";
+
+:host {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .globeIcon {
+        font-size: 5rem;
+        color: $primary;
+        margin-bottom: 2rem;
+    }
+    div {
+        width: 80vw;
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            .maxScore {
+                border-radius: 4px;
+                padding: .5rem 1.5rem;
+                margin-left: .5rem;
+                font-weight: bold;
+                background-color: $primary;
+                color: $light;
+                width: fit-content;
+            }
+        }
+
+        button {
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 2rem;
+            padding: .5rem 0;
+            background-color: $accent;
+            color: $light;
+            font-family: Nunito;
+            font-size: 1rem;
+            border: solid 2px $accent;
+        }
+
+        button:hover {
+            color: $accent;
+            font-weight: bold;
+            background-color: transparent;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    :host {
+        div {
+            width: 20vw;
+        }
+    }
+}

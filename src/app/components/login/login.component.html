@@ -1,0 +1,17 @@
+<div class="content">
+    <fa-icon class="globeIcon" [icon]="faGlobe"></fa-icon>
+    <h1>Monument Quiz</h1>
+    <p class="errors">{{errors}}</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="input">
+            <label>identifiant (pseudo ou email)</label>
+            <input formControlName="login" type="text">
+        </div>
+        <div class="input">
+            <label>mot de passe</label>
+            <input formControlName="password" type="password">
+        </div>
+        <button class="submit" type="submit" [disabled]="canValide()">Se connecter</button>
+        <button class="link" [routerLink]="['/register']">Créer un compte</button>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="content">
+    <table *ngIf="quiz && quiz.time">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Score</th>
+                <th>Temps</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="score">{{quiz.finalScore}}</td>
+                <td class="time">{{quiz.time.minutes | twoDigit}}:{{quiz.time.seconds | twoDigit}}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let question of quiz.questions">
+                <td class="name">{{question.monument.name}}</td>
+                <td class="score">{{question.score}}</td>
+                <td class="time">{{question.time.minutes | twoDigit}}:{{question.time.seconds | twoDigit}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="bottom">
+                <td colspan="2"></td>
+                <td><button [routerLink]="['']">Continuer</button></td>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>

@@ -1,0 +1,98 @@
+@import 'theme';
+
+.content {
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $primary;
+    font-family: spaceGrotesk;
+    font-weight: bold;
+    .score, .time {
+        font-family: Nunito;
+        text-align: center;
+    }
+    table {
+        border-collapse:separate;
+        border-spacing: 1vw 2.5vh;
+    }
+    thead {
+        th {
+            font-size: 90%;  
+        }
+        .score, .time  {
+            box-shadow: 0px 0px 5px rgba($primary, .3);
+            background-color: $primary;
+            border-radius: 4px;
+            color: $light;
+            font-size: 100%;
+            padding: .7rem 1rem;
+        }
+    }
+    tbody {
+        font-size: 90%;
+        tr {
+            border-radius: 4px;
+            box-shadow: 0px 0px 5px rgba($primary, .3);
+            td {
+                padding: .9rem 0;
+            }
+            .score {
+                text-align: left;
+                padding-left: 1rem;
+            }
+            .name {
+                padding-left: 1rem;
+            }
+        }
+    }
+    tfoot {
+        button {
+            box-shadow: 0px 0px 5px rgba($primary, .3);
+            width: 100%;
+            background-color: $accent;
+            border: solid 2px $accent;
+            padding: .5rem;
+            font-weight: bold;
+            font-family: spaceGrotesk;
+            color: $light;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+        button:hover {
+            background-color: transparent;
+            color: $accent;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .content {
+        thead {
+            th {
+                font-size: 130%;  
+            }
+            .score, .time {
+                font-size: 250%;
+                padding: .5rem 2rem;
+            }
+        }
+        tbody {
+            tr {
+                .score, .time, .name {
+                    font-size: 200%;
+                }
+                .score, .name {
+                    padding-left: 2rem;
+                }
+            }
+        }
+        tfoot {
+            button {
+                font-size: 120%;
+            }
+        }
+    }
+}
