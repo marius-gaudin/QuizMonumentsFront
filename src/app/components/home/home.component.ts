@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faGlobeEurope, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faGlobeEurope, IconDefinition, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Quiz } from 'src/app/models/quiz';
+import { JwtTokenService } from 'src/app/services/jwt-token.service';
 import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
@@ -11,10 +12,11 @@ import { QuizService } from 'src/app/services/quiz.service';
 })
 export class HomeComponent {
   faGlobe: IconDefinition = faGlobeEurope
+  faRightFromBracket: IconDefinition = faRightFromBracket
   maxScore: number | undefined
   quizInProgress: Quiz | undefined
 
-  constructor(private quizService: QuizService, private router: Router) {
+  constructor(private quizService: QuizService, private router: Router, private tokenService: JwtTokenService) {
     this.quizService.getQuizzes().subscribe(quizzes => {
       if(quizzes.length > 0) {
         this.maxScore = Math.max(...quizzes.map(quiz => quiz.finalScore))
@@ -32,6 +34,11 @@ export class HomeComponent {
         
       }
     })
+  }
+
+  logout() {
+      this.tokenService.removeToken()
+      this.router.navigate(['login'])
   }
 
   continue() {
