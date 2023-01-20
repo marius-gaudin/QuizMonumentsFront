@@ -1,7 +1,7 @@
 <div class="timer" *ngIf="timer">
     {{ timer.minutes | twoDigit }}:{{ timer.seconds | twoDigit}}
 </div>
-<google-map #map height="100vh" width="100%" [options]="options" [zoom]=3 (mapDblclick)="setPoint($event)">
+<google-map #map height="100vh" width="100%" [options]="options" [zoom]="zoom" (mapDblclick)="setPoint($event)">
     <map-marker 
         *ngIf="marker"
         [position]="marker"

@@ -13,7 +13,7 @@
         <div *ngIf="question?.score !== null && question" class="result">
             <p class="totalScore">{{question.totalScore}}</p>
             <p><fa-icon [icon]="faPlus"></fa-icon> {{question.score}}</p>
-            <p><fa-icon [icon]="faDistance"></fa-icon> {{question.distance.value | floor}} {{question.distance.value < 1 ? 'm' : question.distance.unit}}</p>
+            <p><fa-icon [icon]="faDistance"></fa-icon> {{question.distance.value < 1 ? (question.distance.value * 100 | floor) : (question.distance.value | floor)}} {{question.distance.value < 1 ? 'm' : question.distance.unit}}</p>
             <p><fa-icon [icon]="faClock"></fa-icon> {{question.time.minutes | twoDigit}}:{{question.time.seconds | twoDigit}}</p>
         </div>
         <button *ngIf="marker && question?.score === null" (click)="setAnswer()">VALIDER</button>

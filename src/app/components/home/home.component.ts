@@ -16,7 +16,9 @@ export class HomeComponent {
 
   constructor(private quizService: QuizService, private router: Router) {
     this.quizService.getQuizzes().subscribe(quizzes => {
-      this.maxScore = Math.max(...quizzes.map(quiz => quiz.finalScore))
+      if(quizzes.length > 0) {
+        this.maxScore = Math.max(...quizzes.map(quiz => quiz.finalScore))
+      }
       this.quizInProgress = quizzes.find(quiz => quiz.finalScore === null)
     })
   }

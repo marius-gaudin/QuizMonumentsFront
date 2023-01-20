@@ -19,9 +19,16 @@ export class QuestionComponent {
     streetViewControl: false,
     fullscreenControl: false,
     mapTypeControl: false,
-    zoomControl: false
+    zoomControl: false,
+    styles: [
+      {
+        featureType: "poi",
+        stylers: [{visibility: "off"}]
+      }
+    ]
   };
 
+  zoom: number = 3
   quiz: Quiz | undefined
   timer: Time | undefined
   timerInterval: any
@@ -75,6 +82,7 @@ export class QuestionComponent {
     if(this.number >= 0) {
       this.marker = undefined
       this.markerResult = undefined
+      this.zoom = 3
       this.getQuestion(true)
     } else {
       this.router.navigate([`quiz/${this.quiz._id}/result`])

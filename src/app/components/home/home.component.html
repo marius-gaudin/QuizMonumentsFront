@@ -1,6 +1,6 @@
 <fa-icon class="globeIcon" [icon]="faGlobe"></fa-icon>
 <div>
-    <div>Meilleur score : <div class="maxScore" *ngIf="maxScore">{{maxScore}}</div></div>
+    <div *ngIf="maxScore">Meilleur score : <div class="maxScore">{{maxScore}}</div></div>
     <button *ngIf="quizInProgress" (click)="continue()">Continuer</button>
     <button (click)="newQuiz()">Nouveau quiz</button>
 </div>
